@@ -141,17 +141,17 @@
 					
 				</div>
 				<div class="modal-footer me-auto mt-3">
-					<div class="row">
-						<div class="col-lg-2">
+					<div class="row" style="width: 300px;">
+						<div class="col-lg-3">
 							<img src="img/profile.PNG" class="rounded-circle" width="50px" alt="">
 						</div>
-						<div class="col-lg">
-							<a href="#" class="card-title" style="font-size: 15px; color: black;"><b>Maman Woodman</b></a>
-							<p style="color: red;">Bandung</p>
+
+						<div class="col-lg workerModal">
+
 						</div>
-						<div class="col-lg">
-							<p style="font-size: 14px;">- 2 Pesanan sedang dikerjakan</p>
-						</div>
+						<!-- <div class="col-lg">
+							<p style="font-size: 14px;"> - 2 Pesanan sedang dikerjakan</p>
+						</div> -->
 					</div>
 				</div>
 			</div>
