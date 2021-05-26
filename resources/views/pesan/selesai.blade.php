@@ -29,7 +29,7 @@
 						<div class="success-box top">
 							<p><b>Success</b></p>
 							<p>Pesanan anda berhasil dibuat & sedang diproses</p>
-							<p>No Pesanan : 202131031920470</p>
+							<p>No Pesanan : {{ $order->order_number }}</p>
 						</div>
 						<div class="mt-5 mb-5">
 							<form>

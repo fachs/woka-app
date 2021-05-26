@@ -88,7 +88,7 @@
 
 		<div class="row btn-area mt-5 mb-5 flex">
 			<div class="col-lg col-sm-12">
-				<a href="{{ url('/new/description') }}"><button class="btn btn-batal" oncl="">Kembali</button></a>
+				<!-- <a href="{{ url('/new/description') }}"><button class="btn btn-batal" oncl="">Kembali</button></a> -->
 				<button class="btn btn-pesan float-end" type="submit">Simpan & Lanjutkan</button>
 			</div>
 		</div>

@@ -6,9 +6,9 @@
 			<div class="col-lg col-sm-12">
 				<div class="row ms-3 me-3">
 					<div class="box">
-						<p style="font-size: 30px;">
+						<!-- <p style="font-size: 30px;">
 							<i class="bi bi-envelope"></i>
-						</p>
+						</p> -->
 						<!-- <p style="margin:0; text-align: right;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil-fill"></i></button></p> -->
 						<img src="{{asset('img/')}}/profile.PNG" width="30%" class="rounded-circle flex mb-3" alt="">
 						<p style="text-align: center;"><b>Ucup Rodriguez</b></p>

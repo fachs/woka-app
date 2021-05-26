@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mt-5 mb-5 ms-3 me-3">
+				<!-- <div class="row mt-5 mb-5 ms-3 me-3">
 					<div class="box">
 						<h6><b>Kotak Masuk</b></h6>
 						<div class="row mt-4">
@@ -80,7 +80,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="col-lg col-sm-12">
@@ -88,14 +88,14 @@
 					<div class="box">
 						<table width="100%" cellpadding="5" class="mt-4 mb-2" style="font-size: 12px; text-align: center;">
 							<thead>
-								<th>Dalam antrean</th>
+								<th>Selesai</th>
 								<th>Sedang diproses</th>
 								<th>Menunggu konfirmasi</th>
 							</thead>
 							<tr>
-								<td>2</td>
-								<td>1</td>
-								<td>1</td>
+								<td><?php echo $ord_selesai->count(); ?></td>
+								<td><?php echo $ord_proses->count(); ?></td>
+								<td><?php echo $ord_menunggu->count(); ?></td>
 							</tr>
 						</table>
 					</div>
@@ -103,80 +103,91 @@
 				<div class="row mt-5 mb-5 ms-3 me-3">
 					<div class="box">
 						<p><b>Menunggu Konfirmasi</b></p>
+						<?php $i = 0; ?>
+						<?php foreach ($ord_menunggu as $ord_wait) : ?>
+						<?php $i++; ?>
+						<?php if($i < 4): ?>
+						<form action="{{ url('/order') }}" method="post">
+						@method('patch')
+                		@csrf
 						<div class="row mt-5 me-3">
 							<div class="col-lg col-sm-2">
 								<img src="{{ asset('img/') }}/Chainsaw-Wood-Cutting-Tools.jpg" width="150px" class="rounded" alt="">
 							</div>
 							<div class="col-lg col-sm">
 								<p style="font-size: 13px;">
-									<b>Jasa tebang pohon</b> <br>
-									3x Pohon Sedang <br>
-									No. 2021039124560
+									<!-- <b>Nama Jasa</b> <br>
+									Keterangan Pemesanan <br> -->
+									No. {{ $ord_wait->order_number }}
 								</p>
 							</div>
 							<div class="col-lg col-sm">
-								<button class="btn bg-proses2 float-end" style="font-size: 13px;">Terima</button>
+								<input type="text" name="ord_id" value="{{ $ord_wait->id }}" hidden>
+								<button class="btn bg-proses2 float-end" style="font-size: 13px;" name="status" value="Terima" type="submit">Terima</button>
 								<br><br>
-								<button class="btn btn-danger float-end" style="font-size: 13px;">Tolak</button>
+								<button class="btn btn-danger float-end" style="font-size: 13px;" name="status" value="Tolak" type="submit">Tolak</button>
+							
 							</div>
 						</div>
+						</form>
+						<hr>
+						<?php endif; ?>
+						<?php endforeach; ?>
 
 					</div>
 				</div>
 				<div class="row mt-5 mb-5 ms-3 me-3">
 					<div class="box">
-						<p><b>Dalam antrean</b></p>
+						<p><b>Dalam Proses</b></p>
+						<?php $i = 0; ?>
+						<?php foreach ($ord_proses as $ord_process) : ?>
+						<?php $i++; ?>
+						<?php if($i < 4): ?>
 						<div class="row mt-5 me-3">
 							<div class="col-lg col-sm-2">
 								<img src="{{ asset('img/') }}/Chainsaw-Wood-Cutting-Tools.jpg" width="150px" class="rounded" alt="">
 							</div>
 							<div class="col-lg col-sm">
 								<p style="font-size: 13px;">
-									<b>Jasa tebang pohon</b> <br>
-									2x Pohon Sedang <br>
-									No. 2021039124560
+									<!-- <b>Nama Jasa</b> <br>
+									Keterangan Pemesanan <br> -->
+									No. {{ $ord_process->order_number }}
 								</p>
 							</div>
 							<div class="col-lg col-sm">
-								<button class="btn bg-proses1 float-end" style="font-size: 13px;">Proses</button>
+								<button class="btn bg-proses2 float-end" style="font-size: 13px;" disabled>Dalam Proses</button>
 							</div>
 						</div>
 						<hr>
-						<div class="row me-3">
-							<div class="col-lg col-sm-2">
-								<img src="{{ asset('img/') }}/Chainsaw-Wood-Cutting-Tools.jpg" width="150px" class="rounded" alt="">
-							</div>
-							<div class="col-lg col-sm">
-								<p style="font-size: 13px;">
-									<b>Jasa tebang pohon</b> <br>
-									3x Pohon Sedang <br>
-									No. 20210391241120
-								</p>
-							</div>
-							<div class="col-lg col-sm">
-								<button class="btn bg-proses1 float-end" style="font-size: 13px;">Proses</button>
-							</div>
-						</div>
+						<?php endif; ?>
+						<?php endforeach; ?>
 					</div>
 				</div>
 				<div class="row mt-5 mb-5 ms-3 me-3">
 					<div class="box">
-						<p><b>Sedang diproses</b></p>
+						<p><b>Selesai</b></p>
+						<?php $i = 0; ?>
+						<?php foreach ($ord_selesai as $ord_done) : ?>
+						<?php $i++; ?>
+						<?php if($i < 4): ?>
 						<div class="row mt-5 me-3">
 							<div class="col-lg col-sm-2">
 								<img src="{{ asset('img/') }}/Chainsaw-Wood-Cutting-Tools.jpg" width="150px" class="rounded" alt="">
 							</div>
 							<div class="col-lg col-sm">
 								<p style="font-size: 13px;">
-									<b>Jasa tebang pohon</b> <br>
-									3x Pohon Sedang <br>
-									No. 2021039124560
+									<!-- <b>Nama Jasa</b> <br>
+									Keterangan Pemesanan <br> -->
+									No. {{ $ord_done->order_number }}
 								</p>
 							</div>
                             <div class="col-lg col-sm">
 								<button class="btn bg-proses2 float-end" style="font-size: 13px;" disabled>Selesai</button>
 							</div>
 						</div>
+						<hr>
+						<?php endif; ?>
+						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>

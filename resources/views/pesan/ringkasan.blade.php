@@ -53,7 +53,7 @@
 			</div>
 			<div class="col-lg col-sm-12 mb-5">
 				<div class="card">
-				<form method="post" action="{{ url('order/') }}">
+				<form method="get" action="{{ url('order/bayar') }}">
 					@csrf
 					<div class="card-body">
 						<b>&nbsp;&nbsp;Ringkasan Pesanan</b>
