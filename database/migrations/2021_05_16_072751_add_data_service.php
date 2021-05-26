@@ -64,54 +64,54 @@ class AddDataService extends Migration
             'description' => 'Cat dinding ruangan',
             'requirements' => 'Cat tembok '
         ]);
-        Service::create([
-            'nama' => 'Tebang pohon',
-            'kategori' => 'Jasa kebun',
-            'worker_id' => 6,
-            'harga_pil_1' => 55000,
-            'nama_pil1' => 'Kecil',
-            'pic_1' => 'tebang.jpg',
-            'vid_4' => 'tebang.mp4',
-            'ket_pil1' => 'Pohon kecil (≤ 2m)',
-            'description' => 'Jasa tebang pohon segala ukuran',
-            'requirements' => '-'
-        ]);
-        Service::create([
-            'nama' => 'Penulisan skripsi/makalah',
-            'kategori' => 'Jasa Ketik',
-            'worker_id' => 7,
-            'harga_pil_1' => 100000,
-            'nama_pil1' => '20 Halaman',
-            'pic_1' => 'skripsi.jpg',
-            'vid_4' => 'skripsi.mp4',
-            'ket_pil1' => '≤ 20 halaman',
-            'description' => 'Jasa penulisan/pengetikan skripsi',
-            'requirements' => 'Ide dan konten sudah fix'
-        ]);
-        Service::create([
-            'nama' => 'Cuci AC (air conditioner)',
-            'kategori' => 'Jasa Perawatan Rumah',
-            'worker_id' => 8,
-            'harga_pil_1' => 150000,
-            'nama_pil1' => 'Cuci AC',
-            'pic_1' => 'ac.jpg',
-            'vid_4' => 'ac.mp4',
-            'ket_pil1' => 'Perawatan & Cuci AC bersih',
-            'description' => 'Tidak ada',
-            'requirements' => 'Tidak ada'
-        ]);
-        Service::create([
-            'nama' => 'Kuras kolam renan',
-            'kategori' => 'Jasa perawatan rumah',
-            'worker_id' => 10,
-            'harga_pil_1' => 400000,
-            'nama_pil1' => 'Kolam Kecil',
-            'pic_1' => 'kolam.jpg',
-            'vid_4' => 'kolam.mp4',
-            'ket_pil1' => '≤  5m x 5m',
-            'description' => 'Tidak ada',
-            'requirements' => 'Sumber Air Bersih'
-        ]);
+        // Service::create([
+        //     'nama' => 'Tebang pohon',
+        //     'kategori' => 'Jasa kebun',
+        //     'workers_id' => 6,
+        //     'harga_pil_1' => 55000,
+        //     'nama_pil1' => 'Kecil',
+        //     'pic_1' => 'tebang.jpg',
+        //     'vid_4' => 'tebang.mp4',
+        //     'ket_pil1' => 'Pohon kecil (≤ 2m)',
+        //     'description' => 'Jasa tebang pohon segala ukuran',
+        //     'requirements' => '-'
+        // ]);
+        // Service::create([
+        //     'nama' => 'Penulisan skripsi/makalah',
+        //     'kategori' => 'Jasa Ketik',
+        //     'workers_id' => 7,
+        //     'harga_pil_1' => 100000,
+        //     'nama_pil1' => '20 Halaman',
+        //     'pic_1' => 'skripsi.jpg',
+        //     'vid_4' => 'skripsi.mp4',
+        //     'ket_pil1' => '≤ 20 halaman',
+        //     'description' => 'Jasa penulisan/pengetikan skripsi',
+        //     'requirements' => 'Ide dan konten sudah fix'
+        // ]);
+        // Service::create([
+        //     'nama' => 'Cuci AC (air conditioner)',
+        //     'kategori' => 'Jasa Perawatan Rumah',
+        //     'workers_id' => 8,
+        //     'harga_pil_1' => 150000,
+        //     'nama_pil1' => 'Cuci AC',
+        //     'pic_1' => 'ac.jpg',
+        //     'vid_4' => 'ac.mp4',
+        //     'ket_pil1' => 'Perawatan & Cuci AC bersih',
+        //     'description' => 'Tidak ada',
+        //     'requirements' => 'Tidak ada'
+        // ]);
+        // Service::create([
+        //     'nama' => 'Kuras kolam renan',
+        //     'kategori' => 'Jasa perawatan rumah',
+        //     'workers_id' => 10,
+        //     'harga_pil_1' => 400000,
+        //     'nama_pil1' => 'Kolam Kecil',
+        //     'pic_1' => 'kolam.jpg',
+        //     'vid_4' => 'kolam.mp4',
+        //     'ket_pil1' => '≤  5m x 5m',
+        //     'description' => 'Tidak ada',
+        //     'requirements' => 'Sumber Air Bersih'
+        // ]);
     }
 
     /**
