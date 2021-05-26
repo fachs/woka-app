@@ -44,8 +44,7 @@
 		<div class="row flex">
 			<div class="card">
 				<div class="card-body">
-					<form action="" method="post">
-						<?php echo csrf_field(); ?>
+
 						<div class="row mt-3">
 							<label>Jelaskan jasa yang anda tawarkan</label>
 							<textarea name="description" id="description"></textarea>
@@ -56,7 +55,7 @@
 							<textarea name="requirements" id="requirements"></textarea>
 							<p style="font-size: 12px; color: #a0a0a0; text-align: right;">Maksimal 450 Karakter</p>
 						</div>
-					</form>
+
 				</div>
 			</div>
 		</div>

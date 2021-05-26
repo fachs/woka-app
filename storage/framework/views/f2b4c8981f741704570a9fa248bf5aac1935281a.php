@@ -25,9 +25,15 @@
 			<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<form class="d-flex">
-					<input class="form-control me-2" type="search" placeholder="Temukan Jasa" aria-label="Search" style="width: 550px">
-				</form>
+				<!-- <form class="d-flex">
+					<input class="form-control me-2" type="search" placeholder="Temukan Jasa" aria-label="Search" style="width: 550px" id="search-input">
+				</form> -->
+				<div class="input-group d-flex "  style="width: 550px">
+					<input type="text" class="form-control" placeholder="Temukan Jasa" aria-describedby="button-addon2" id="search-input">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary btn-dark" type="button" id="search-button">Cari</button>
+					</div>
+				</div>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item me-5">
 						<a class="nav-link" href="<?php echo e(url('/jelajahi')); ?>">Jelajahi</a>
@@ -92,37 +98,22 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent2">
 				<ul class="navbar-nav mx-auto mb-2 mb-lg-0" style="text-align: center; font-size: 0.9rem">
+
 					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Jasa Las</a>
+						<a class="nav-link" href="#">Kategori</a>
 					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Tukang Kebun</a>
-					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Tukang Kayu</a>
-					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Jasa Ketik</a>
-					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Jasa Montir</a>
-					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Jasa Cleaning</a>
-					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Tukang Masak</a>
-					</li>
-					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Tukang Dekor</a>
-					</li>
+
 				</ul>
 			</div>
 		</div>
 	</nav>
+	
+	<br> 
     <?php echo $__env->yieldContent('container'); ?>
 
+
     <div class="bar mt-5"></div>
+	
 	<div class="footer">
 		<p>
 			<img src="<?php echo e(asset('img/')); ?>/logofooter.png" width="25px" alt="">
@@ -130,8 +121,61 @@
 			@ 2021, PT. Woka.
 		</p>
 	</div>
+	
+	<!-- Modal -->
+	<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl modal-dialog-scrollable">
+			<div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer me-auto mt-3">
+					<div class="row">
+						<div class="col-lg-2">
+							<img src="img/profile.PNG" class="rounded-circle" width="50px" alt="">
+						</div>
+						<div class="col-lg">
+							<a href="#" class="card-title" style="font-size: 15px; color: black;"><b>Maman Woodman</b></a>
+							<p style="color: red;">Bandung</p>
+						</div>
+						<div class="col-lg">
+							<p style="font-size: 14px;">- 2 Pesanan sedang dikerjakan</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	<script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+	<script src="<?php echo e(asset('js/')); ?>/script.js"></script>
 	</body>
 	</html><?php /**PATH C:\xampp\htdocs\woka-app - Copy\resources\views/layout/search/main.blade.php ENDPATH**/ ?>

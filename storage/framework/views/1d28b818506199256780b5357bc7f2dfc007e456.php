@@ -22,6 +22,8 @@
 	</nav>
 
 	<div class="container mt-5">
+	<form method="post" action="<?php echo e(url('order/bayar')); ?>">
+	<?php echo csrf_field(); ?>
 		<div class="row mt-4 bottom">
 			<div class="col-lg-8 col-sm-12">
 				<h5>Pilihan Pembayaran</h5>
@@ -163,10 +165,9 @@
 								</tr>
 							</table>
 							<div>
-								<form method="post">
-                                    <?php echo csrf_field(); ?>
-									<button type="submit" formaction="<?php echo e(url('order/done')); ?>" class="btn btn-pesan mt-3 flex">Konfirmasi & Bayar</button>
-								</form>
+                                    
+									<button type="submit" class="btn btn-pesan mt-3 flex">Konfirmasi & Bayar</button>
+								
 								<p style="text-align: center; font-size: 10px;" class="mt-3">SSL Security Payment</p>
 							</div>
 						</div>
@@ -174,6 +175,7 @@
 				</div>
 			</div>
 		</div>
+		</form>
 	</div>
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

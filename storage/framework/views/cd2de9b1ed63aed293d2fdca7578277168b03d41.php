@@ -3,7 +3,7 @@
 <?php $__env->startSection('container'); ?>
 	<div class="container">
 		<div class="row mt-5">
-			<div class="col-lg-5 col-sm-12">
+			<div class="col-lg-5 col-sm-12 mb-5">
 				<div class="row ms-3 me-3">
 					<div class="box">
 					<p style="text-align: right;"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil-fill"></i></button></p>
@@ -13,88 +13,45 @@
 						<p style="text-align: center;"><?php echo e(Auth::user()->created_at); ?></p>
 					</div>
 				</div>
-				<div class="row mt-5 mb-5 ms-3 me-3">
-					<div class="box">
-						<h6><b>Kotak Masuk</b></h6>
-						<div class="row mt-4">
-							<div class="col-lg-2">
-								<img src="<?php echo e(asset('img/')); ?>/profile.PNG" class="rounded-circle" width="50px" alt="">
-							</div>
-							<div class="col-lg">
-								<p>
-									<b>Karen</b> mengirim anda sebuah pesan singkat
-									<br>
-									<span style="color: #b5b5b5;">
-										Mar 01
-									</span>
-								</p>
-							</div>
-						</div>
-						<div class="row mt-4">
-							<div class="col-lg-2">
-								<img src="<?php echo e(asset('img/')); ?>/profile.PNG" class="rounded-circle" width="50px" alt="">
-							</div>
-							<div class="col-lg">
-								<p>
-									<b>Ulrich</b> mengirim anda sebuah pesan singkat
-									<br>
-									<span style="color: #b5b5b5;">
-										Mar 02
-									</span>
-								</p>
-							</div>
-						</div>
-						<div class="row mt-4">
-							<div class="col-lg-2">
-								<img src="<?php echo e(asset('img/')); ?>/profile.PNG" class="rounded-circle" width="50px" alt="">
-							</div>
-							<div class="col-lg">
-								<p>
-									<b>Luigi</b> mengirim anda sebuah pesan singkat
-									<br>
-									<span style="color: #b5b5b5;">
-										Mar 03
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div class="col-lg col-sm-12">
-				<div class="box">
-					<h6 style="text-align: center;"><b>Riwayat Pemesanan</b></h6>
+				<div class="card">
+					<div class="card-body">
+						<h6 style="text-align: center;"><b>Riwayat Pemesanan</b></h6>
+                        
+						<?php $i = 0; ?>
+					<?php foreach ($order as $ord) : ?>
+					<?php $i++; ?>
+					<?php if($i < 4): ?>
+						<form action="<?php echo e(url('/order')); ?>" method="post">
+						<?php echo method_field('patch'); ?>
+                		<?php echo csrf_field(); ?>
 					<div class="row mt-5 ms-3 me-3">
 						<div class="col-lg-4 col-sm-2">
 							<img src="<?php echo e(asset('img/')); ?>/Chainsaw-Wood-Cutting-Tools.jpg" width="150px" class="rounded" alt="">
 						</div>
 						<div class="col-lg col-sm">
 							<p style="font-size: 14px;">
-								<b>Jasa tebang pohon</b> <br>
-								3x Pohon Sedang <br>
-								No. 2021039124560
+								<!-- Nama Jasa
+								Keterangan Pemesanan -->
+								No. <?php echo e($ord->order_number); ?>
+
 							</p>
 						</div>
 						<div class="col-lg col-sm">
-							<button class="btn btn-status1 float-end"  style="font-size: 14px;" disabled>Sedang diproses</button>
+							<input type="text" name="ord_id" value="<?php echo e($ord->id); ?>" hidden>
+							<button class="btn btn-status1 float-end"  style="font-size: 14px;" disabled><?php echo e($ord->status); ?></button>
 							<br><br>
-							<button class="btn btn-selesai float-end"  style="font-size: 14px;" disabled>Selesai</button>
+							<button class="btn btn-selesai float-end"  style="font-size: 14px;" name="status" value="Selesai" type="submit">Selesai</button>
 						</div>
 					</div>
-					<div class="row mt-4 ms-3 me-3">
-						<div class="col-lg-4 col-sm-2">
-							<img src="<?php echo e(asset('img/')); ?>/Chainsaw-Wood-Cutting-Tools.jpg" width="150px" class="rounded" alt="">
-						</div>
-						<div class="col-lg col-sm">
-							<p style="font-size: 14px;">
-								<b>Jasa tebang pohon</b> <br>
-								3x Pohon Sedang <br>
-								No. 2021039124560
-							</p>
-						</div>
-						<div class="col-lg col-sm">
-							<button class="btn btn-status2 float-end" style="font-size: 14px;" disabled>Selesai dikerjakan</button>
-						</div>
+					<hr>
+					</form>
+					<?php endif; ?>
+					<?php endforeach; ?>
+						
+						<button type="submit" class="btn btn-primary mt-5 mb-3 flex">Lihat Semua Pesanan</button>
+
 					</div>
 				</div>
 			</div>
@@ -116,11 +73,17 @@
       						<td>:</td>
       						<td><input type="text" :value="old('name')"/></td>
       					</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
       					<tr>
       						<td>Alamat</td>
       						<td>:</td>
       						<td><input type="text" :value="old('address')"/></td>
       					</tr>
+						  <tr>
+							<td>&nbsp;</td>
+						</tr>
       					<tr>
       						<td>Foto Profil</td>
       						<td>:</td>

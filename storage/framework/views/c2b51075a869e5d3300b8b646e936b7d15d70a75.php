@@ -218,8 +218,8 @@
 					<div class="card-body">
 						<form action="<?php echo e(url('/search')); ?>">
 						<?php echo csrf_field(); ?>
-							<input type="text" class="search-box" placeholder="Temukan Jasa" name="namaJasa" id="namaJasa">
-							<button class="btn btn-primary" type="submit">Cari Jasa</button>
+							<input type="text" class="search-box" placeholder="Temukan Jasa" id="search-input">
+							<button class="btn btn-primary" type="submit" id="search-button">Cari Jasa</button>
 						</form>
 				  	</div>
 				</div>
