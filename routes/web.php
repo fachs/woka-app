@@ -30,9 +30,7 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::any('/search', function () {
-    return view('search.index');
-});
+Route::any('/search', [PagesController::class, 'search']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -57,7 +55,7 @@ Route::post('/gabung/security', [WorkersController::class, 'storeKeamanan'])->mi
 
 
 // <================= JASA BARU =================>
-Route::get('/new', [ServicesController::class, 'create'])->middleware(['auth',EnsureUserType::class])->name('new');
+Route::get('/new', [ServicesController::class, 'create'])->middleware(['auth'])->name('new');
 
 Route::post('/new', [ServicesController::class, 'store'])->middleware(['auth']);
 
@@ -81,13 +79,17 @@ Route::get('/profil', [PagesController::class, 'profil'])->middleware(['auth']);
 
 Route::get('/pesanan', [PagesController::class, 'pesanan'])->middleware(['auth']);
 
-Route::get('/profil/worker', [PagesController::class, 'profilWorker']);
+// Route::get('/profil/worker', [PagesController::class, 'profilWorker']);
+
+Route::get('/profil/worker/{id}', [WorkerController::class, 'show']);
 
 
 // <================= PESANAN BARU =================>
 Route::get('/order', [OrdersController::class, 'index'])->middleware(['auth']);
 
 Route::post('/order', [OrdersController::class, 'store'])->middleware(['auth']);
+
+Route::patch('/order', [OrdersController::class, 'update'])->middleware(['auth']);
 
 Route::get('/order/bayar', [OrdersController::class, 'bayar'])->middleware(['auth']);
 
@@ -100,7 +102,8 @@ Route::get('/order/done', [OrdersController::class, 'done'])->middleware(['auth'
 // });
 
 Route::get('/services', function () {
-    return new ServiceCollection(Service::all());
+    // return new ServiceCollection(Service::all());
+    return ServiceResource::collection(Service::all());
 });
 
 Route::get('/services/{id}', function ($id) {
