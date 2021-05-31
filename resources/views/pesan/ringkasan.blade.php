@@ -27,7 +27,7 @@
 				<h5>Pesanan anda</h5>
 				<div class="row mt-4">
 					<div class="col-lg-1 col-sm">
-						<img src="{{ asset('img/') }}/{{$service->pic_1}}" class="rounded-circle" width="50px" alt="">
+						<img src="{{ asset('img/') }}/profile.PNG" class="rounded-circle" width="50px" alt="">
 					</div>
 					<div class="col-lg col-sm">
 						<a href="#" class="card-title" style="font-size: 15px; color: black;"><b>{{$service->worker_fname}} {{$service->worker_lname}}</b></a>
@@ -36,7 +36,7 @@
 				</div>
 				<div class="row mt-3">
 					<div class="col-lg-5 col-sm-12">
-						<img src="{{ asset('img/') }}/20191122_01.png" alt="" width="100%">
+						<img src="{{ asset('img/') }}/{{$service->pic_1}}" alt="" width="100%">
 					</div>
 					<div class="col-lg col-sm-12 mt-2">
 						<p>
