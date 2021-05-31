@@ -30,7 +30,7 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::any('/search', [PagesController::class, 'search']);
+Route::any('/search', [PagesController::class, 'search'])->name('search');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -81,7 +81,7 @@ Route::get('/pesanan', [PagesController::class, 'pesanan'])->middleware(['auth']
 
 // Route::get('/profil/worker', [PagesController::class, 'profilWorker']);
 
-Route::get('/profil/worker/{id}', [WorkerController::class, 'show']);
+// Route::get('/profil/worker/{id}', [WorkerController::class, 'show']);
 
 
 // <================= PESANAN BARU =================>
@@ -110,9 +110,7 @@ Route::get('/services/{id}', function ($id) {
     return new ServiceResource(Service::findOrFail($id));
 });
 
+Route::get('/search/{keyword}', [PagesController::class, 'seachKeyword']);
+
 require __DIR__.'/auth.php';
 
-// Route::group(['middleware' => ['auth']], function () {
-//     Route::get('/checkout', 'Site\CheckoutController@getCheckout')->name('checkout.index');
-//     Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
-// });
