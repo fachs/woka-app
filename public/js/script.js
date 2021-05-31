@@ -1,58 +1,117 @@
+let params = (new URL(document.location)).searchParams;
+let keyword = params.get('keyword');
+
 function showService() {
     $('#service-list').html('');
 
-   $.ajax({
-        url: 'http://localhost/rest-api/wokaRest-server/api/service',
-        type: 'get',
-        dataType: 'json',
-        data: {
-            'iKey' : 'irest123'
-        },
-        success: function (result) {
-            let services = result.data;
-
-            $.each(services, function (i, serv) {
-                   $('#service-list').append(`
-                   <div class="col-md-4 ms-2" style="width: 23rem;">
-                        <div class="card mb-4">
-                            <img src="img/${serv.pic_1}" class="card-img-top see-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${serv.id}" style="cursor: pointer; height: 191px;">
-                            <div class="card-body">
-            
-                            <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <img src="img/profile.PNG" class="rounded-circle" width="50px" alt="">
+    if (keyword == "") {
+        $.ajax({
+            url: 'http://localhost/rest-api/wokaRest-server/api/service',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                'iKey' : 'irest123'
+            },
+            success: function (result) {
+                let services = result.data;
+    
+                $.each(services, function (i, serv) {
+                       $('#service-list').append(`
+                       <div class="col-md-4 ms-2" style="width: 23rem;">
+                            <div class="card mb-4">
+                                <img src="img/${serv.pic_1}" class="card-img-top see-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${serv.id}" style="cursor: pointer; height: 191px;">
+                                <div class="card-body">
+                
+                                <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <img src="img/profile.PNG" class="rounded-circle" width="50px" alt="">
+                                    </div>
+                                    <div class="col-lg">
+                                        <a href="#" class="card-title" style="font-size: 15px; color: black;">${serv.worker_fname} ${serv.worker_lname}</a>
+                                        <p style="color: red;">${serv.worker_address}</p>
+                                    </div>
                                 </div>
-                                <div class="col-lg">
-                                    <a href="#" class="card-title" style="font-size: 15px; color: black;">${serv.worker_fname} ${serv.worker_lname}</a>
-                                    <p style="color: red;">${serv.worker_address}</p>
-                                </div>
-                            </div>
-                            <p class="card-text">
-            
-                            </p>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg col-sm-12 thumb-post">
-                                <p>
-                                    ${serv.nama}
+                                <p class="card-text">
+                
                                 </p>
                             </div>
+    
+                            <div class="row">
+                                <div class="col-lg col-sm-12 thumb-post">
+                                    <p>
+                                        ${serv.nama}
+                                    </p>
+                                </div>
+                            </div>
+    
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="text-align: center;">Mulai dari Rp ${serv.harga_pil_1}</li>
+                                <li class="list-group-item" style="text-align: center;"><a href="#" class="btn btn-primary see-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${serv.id}">Pesan Sekarang</a></li>
+                            </ul>
+                            
+                            </div>
+                            </div>
                         </div>
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item" style="text-align: center;">Mulai dari Rp ${serv.harga_pil_1}</li>
-                            <li class="list-group-item" style="text-align: center;"><a href="#" class="btn btn-primary see-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${serv.id}">Pesan Sekarang</a></li>
-                        </ul>
-                        
+                       `); 
+                });
+            }
+       });
+    } else {
+        $.ajax({
+            url: 'http://localhost/rest-api/wokaRest-server/api/service',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                'iKey' : 'irest123',
+                'keyword' : keyword
+            },
+            success: function (result) {
+                let services = result.data;
+    
+                $.each(services, function (i, serv) {
+                       $('#service-list').append(`
+                       <div class="col-md-4 ms-2" style="width: 23rem;">
+                            <div class="card mb-4">
+                                <img src="img/${serv.pic_1}" class="card-img-top see-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${serv.id}" style="cursor: pointer; height: 191px;">
+                                <div class="card-body">
+                
+                                <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <img src="img/profile.PNG" class="rounded-circle" width="50px" alt="">
+                                    </div>
+                                    <div class="col-lg">
+                                        <a href="#" class="card-title" style="font-size: 15px; color: black;">${serv.worker_fname} ${serv.worker_lname}</a>
+                                        <p style="color: red;">${serv.worker_address}</p>
+                                    </div>
+                                </div>
+                                <p class="card-text">
+                
+                                </p>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-lg col-sm-12 thumb-post">
+                                    <p>
+                                        ${serv.nama}
+                                    </p>
+                                </div>
+                            </div>
+    
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="text-align: center;">Mulai dari Rp ${serv.harga_pil_1}</li>
+                                <li class="list-group-item" style="text-align: center;"><a href="#" class="btn btn-primary see-detail" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${serv.id}">Pesan Sekarang</a></li>
+                            </ul>
+                            
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                   `); 
-            });
-        }
-   });
+                       `); 
+                });
+            }
+       });
+    }
 }
 
 showService();
