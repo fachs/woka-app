@@ -27,22 +27,22 @@
 				<h5>Pesanan anda</h5>
 				<div class="row mt-4">
 					<div class="col-lg-1 col-sm">
-						<img src="{{ asset('img/') }}/profile.PNG" class="rounded-circle" width="50px" alt="">
+						<img src="{{ asset('img/') }}/{{$service->pic_1}}" class="rounded-circle" width="50px" alt="">
 					</div>
 					<div class="col-lg col-sm">
-						<a href="#" class="card-title" style="font-size: 15px; color: black;"><b>Maman Woodman</b></a>
-						<p style="color: red;">Bandung</p>
+						<a href="#" class="card-title" style="font-size: 15px; color: black;"><b>{{$service->worker_fname}} {{$service->worker_lname}}</b></a>
+						<p style="color: red;">{{$service->worker_address}}</p>
 					</div>
 				</div>
 				<div class="row mt-3">
 					<div class="col-lg-5 col-sm-12">
-						<img src="assets/20191122_01.png" alt="" width="100%">
+						<img src="{{ asset('img/') }}/20191122_01.png" alt="" width="100%">
 					</div>
 					<div class="col-lg col-sm-12 mt-2">
 						<p>
-							<b>Perbaikan furniture kayu</b>
+							<b>{{$service->nama}}</b>
 							<br>
-							Lemari besar
+							{{$service->nama_pil1}}
 							<br>
 						</p>
 						<p>Catatan :</p>
@@ -60,7 +60,7 @@
 						<table width="100%" cellpadding="10" class="mt-4">
 							<tr>
 								<td>Subtotal Harga</td>
-								<td style="text-align: right;">Rp250.000</td>
+								<td style="text-align: right;">Rp{{$service->harga_pil_1}}</td>
 							</tr>
 							<tr>
 								<td>Tambahan Harga</td>
@@ -68,14 +68,14 @@
 							</tr>
 							<tr>
 								<td>Biaya Admin</td>
-								<td style="text-align: right;">Rp10.000</td>
+								<td style="text-align: right;">Rp0</td>
 							</tr>
 						</table>
 						<hr class="mt-4 mb-4">
 						<table width="100%" cellpadding="10" class="mt-4">
 							<tr>
 								<td>Total</td>
-								<td style="text-align: right;"><b>Rp260.000</b></td>
+								<td style="text-align: right;"><b>Rp{{$service->harga_pil_1}}</b></td>
 							</tr>
 							<tr>
 								<td>Perkiraan pengerjaan</td>

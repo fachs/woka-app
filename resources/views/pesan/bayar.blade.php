@@ -127,13 +127,13 @@
 					<div class="card-body">
 						<div class="row mt-3">
 							<div class="col-lg col-sm-12">
-								<img src="{{ asset('img/') }}/20191122_01.png" alt="" width="100%">
+								<img src="{{ asset('img/') }}/{{$service->pic_1}}" alt="" width="100%">
 							</div>
 							<div class="col-lg col-sm-12" style="font-size: 12px;">
 								<p>
-									<b>Perbaikan furniture kayu</b>
+									<b>{{$service->nama}}</b>
 									<br>
-									Lemari besar
+									{{$service->nama_pil1}}
 									<br>
 									Catatan :
 								</p>
@@ -145,7 +145,7 @@
 							<table width="100%" cellpadding="10" class="mt-2 mb-2">
 								<tr>
 									<td>Subtotal Harga</td>
-									<td style="text-align: right;">Rp250.000</td>
+									<td style="text-align: right;">Rp{{$service->harga_pil_1}}</td>
 								</tr>
 								<tr>
 									<td>Tambahan Harga</td>
@@ -153,11 +153,11 @@
 								</tr>
 								<tr>
 									<td>Biaya Admin</td>
-									<td style="text-align: right;">Rp10.000</td>
+									<td style="text-align: right;">Rp0</td>
 								</tr>
 								<tr>
 									<td>Total</td>
-									<td style="text-align: right;"><b>Rp260.000</b></td>
+									<td style="text-align: right;"><b>Rp{{$service->harga_pil_1}}</b></td>
 								</tr>
 								<tr>
 									<td>Perkiraan pengerjaan</td>
