@@ -53,7 +53,7 @@ Route::get('/gabung/security', [WorkersController::class, 'createKeamanan'])->mi
 
 Route::post('/gabung/security', [WorkersController::class, 'storeKeamanan'])->middleware('auth');
 
-Route::post('/gabung/done', [WorkersController::class, 'done']);
+Route::get('/gabung/done', [WorkersController::class, 'done']);
 
 
 // <================= JASA BARU =================>
