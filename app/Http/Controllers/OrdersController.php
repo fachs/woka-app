@@ -20,7 +20,10 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return view('pesan.ringkasan');
+        $dataOrder = Order::where('customer_id', Auth::user()->id)->orderBy('created_at', 'desc')->firstOrFail();
+        $dataService = Service::where('id', $dataOrder->service_id)->first();
+
+        return view('pesan.ringkasan',['service' => $dataService]);
     }
 
     /**
@@ -30,7 +33,10 @@ class OrdersController extends Controller
      */
     public function bayar()
     {
-        return view('pesan.bayar');
+        $dataOrder = Order::where('customer_id', Auth::user()->id)->orderBy('created_at', 'desc')->firstOrFail();
+        $dataService = Service::where('id', $dataOrder->service_id)->first();
+
+        return view('pesan.bayar',['service' => $dataService]);
     }
 
     /**
