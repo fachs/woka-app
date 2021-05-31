@@ -150,9 +150,7 @@ class WorkersController extends Controller
      */
     public function show($id)
     {
-        return view('profil.worker', [
-            'worker' => Worker::findOrFail($id)
-        ]);
+        //
     }
 
     /**
