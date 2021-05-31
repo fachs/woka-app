@@ -28,10 +28,10 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function bayar()
-    // {
-    //     return view('pesan.bayar');
-    // }
+    public function bayar()
+    {
+        return view('pesan.bayar');
+    }
 
     /**
      * Display a listing of the resource.
@@ -40,7 +40,9 @@ class OrdersController extends Controller
      */
     public function done()
     {
-        return view('pesan.selesai');
+        $dataOrder = Order::where('customer_id', Auth::user()->id)->orderBy('created_at', 'desc')->firstOrFail();
+
+        return view('pesan.selesai',['order' => $dataOrder]);
     }
 
     /**
@@ -73,7 +75,7 @@ class OrdersController extends Controller
     
         $order->save();
 
-        return redirect('order/bayar');
+        return redirect('order/');
     }
 
     /**
@@ -85,6 +87,7 @@ class OrdersController extends Controller
     public function bayarStore(Request $request)
     {
         //
+        return redirect('order/done');
     }
 
     /**
@@ -116,9 +119,21 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $order = Order::find($request->ord_id);
+
+        if ($request->status == 'Terima') {
+            $order->status = 'diproses';
+        } else if ($request->status == 'Selesai'){
+            $order->status = 'selesai';
+        } else {
+            $order->status = 'ditolak';
+        }
+
+        $order->save();
+
+        return redirect()->back();
     }
 
     /**

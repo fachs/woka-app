@@ -75,17 +75,23 @@ class ServicesController extends Controller
             ]
         );
 
+        $dataWorker = Worker::where('id',Auth::user()->worker_id)->get();
+
         Service::create([
             'nama' => $request->nama,
             'kategori' => $request->kategori,
-            'workers_id' => Auth::user()->worker_id,
+            'worker_id' => Auth::user()->worker_id,
             'harga_pil_1' => 1,
             'nama_pil1' => 'PENDING',
             'pic_1' => 'PENDING',
             'vid_4' => 'PENDING',
             'ket_pil1' => 'PENDING',
             'description' => 'PENDING',
-            'requirements' => 'PENDING'
+            'requirements' => 'PENDING',
+            'worker_address' => $dataWorker->alamat,
+            'worker_fname' => $dataWorker->fname,
+            'worker_lname' => $dataWorker->lname,
+            'verified' => 'no'
         ]);
         
         return redirect('new/pricing');

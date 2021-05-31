@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends \TCG\Voyager\Models\User
+class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
