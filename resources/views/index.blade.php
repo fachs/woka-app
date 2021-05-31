@@ -136,9 +136,8 @@
 			<div class="col-lg col-sm-12" style="margin-top: 15%;">
 				<div class="card">
 					<div class="card-body">
-						<form action="{{ url('/search') }}">
-						@csrf
-							<input type="text" class="search-box" placeholder="Temukan Jasa" id="search-input">
+						<form method="get" action="{{ route('search') }}">
+							<input type="text" class="search-box" placeholder="Temukan Jasa" id="search-input" name="keyword">
 							<button class="btn btn-primary" type="submit" id="search-button">Cari Jasa</button>
 						</form>
 				  	</div>
@@ -171,6 +170,5 @@
 		myInput1.focus()
 		})
 	</script>	
-
 </body>
 </html>

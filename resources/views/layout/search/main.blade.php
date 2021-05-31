@@ -87,17 +87,33 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent2">
 				<ul class="navbar-nav mx-auto mb-2 mb-lg-0" style="text-align: center; font-size: 0.9rem">
-
 					<li class="nav-item me-5">
-						<a class="nav-link" href="#">Kategori</a>
+						<a class="nav-link" href="/search?keyword=Jasa Montir">Jasa Montir</a>
 					</li>
-
+                    <li class="nav-item me-5">
+						<a class="nav-link" href="/search?keyword=Jasa Renovasi Rumah">Jasa Renovasi Rumah</a>
+					</li>
+                    <li class="nav-item me-5">
+						<a class="nav-link" href="/search?keyword=Jasa Perawatan Instalasi Air">Jasa Perawatan Instalasi Air</a>
+					</li>
+                    <li class="nav-item me-5">
+						<a class="nav-link" href="/search?keyword=Jasa Kebun">Jasa Kebun</a>
+					</li>
+                    <li class="nav-item me-5">
+						<a class="nav-link" href="/search?keyword=Jasa Ketik">Jasa Ketik</a>
+					</li>
+                    <li class="nav-item me-5">
+						<a class="nav-link" href="/search?keyword=Jasa Perawatan Rumah">Jasa Perawatan Rumah</a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	
 	<br> 
+
+	<input type="text" name="dasKeyword" value="{{$keyword}}" hidden>
+
     @yield('container')
 
 
@@ -111,26 +127,6 @@
 		</p>
 	</div>
 	
-	<!-- Modal -->
-	<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl modal-dialog-scrollable">
 			<div class="modal-content">
