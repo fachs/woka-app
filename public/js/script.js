@@ -4,7 +4,7 @@ let keyword = params.get('keyword');
 function showService() {
     $('#service-list').html('');
 
-    if (keyword == "") {
+    if (keyword == "" || keyword == null ) {
         $.ajax({
             url: 'http://localhost/rest-api/wokaRest-server/api/service',
             type: 'get',
