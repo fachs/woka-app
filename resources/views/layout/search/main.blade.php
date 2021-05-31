@@ -112,7 +112,6 @@
 	
 	<br> 
 
-	<input type="text" name="dasKeyword" value="{{$keyword}}" hidden>
 
     @yield('container')
 
