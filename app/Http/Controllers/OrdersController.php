@@ -69,12 +69,12 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        $workId = Service::where('id',$request->service_id)->first();
+        // $workId = Service::where('id',$request->service_id)->first();
 
         $order = Order::create([
             'order_number' => 'ORD-'.strtoupper(uniqid()),
             'status' => 'menunggu',
-            'worker_id' => $workId->workers_id,
+            'worker_id' => $request->worker_id,
             'customer_id' => Auth::user()->id,
             'service_id' => $request->service_id
         ]);
